@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: #f9f9f9;
@@ -115,7 +115,11 @@ body {
   width: 100%;
   height: 100vh;
   background: url(../img/landing.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+
 .hero-bereich .überschrift {
   font-size: 50px;
   color: var(--main-color);
@@ -125,33 +129,53 @@ body {
 }
 /* About Us Section */
 .about-us {
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   background-color: white;
 }
 
 .featuers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.about-text1, .about-text2, .about-text3 {
+.about-text1,
+.about-text2,
+.about-text3 {
   padding: 2rem;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  min-width: 280px;
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-text1:hover, .about-text2:hover, .about-text3:hover {
+.about-text1:hover,
+.about-text2:hover,
+.about-text3:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
+.about-text1 p,
+.about-text2 p,
+.about-text3 p {
+  margin: 0;
+  white-space: normal; /* Zeilenumbruch erlauben */
+  word-break: normal; /* Normales Zeilenumbruchverhalten */
+  overflow-wrap: break-word; /* Lange Wörter umbrechen */
+}
 .about-us i {
+  display: block;
+  font-size: 3rem; /* fa-3x = 3em, hier in rem */
   color: var(--secondary-color);
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem auto;
 }
 
 .about-us h1 {
@@ -162,13 +186,38 @@ body {
 
 .about-us p {
   color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-i {
-  display: block;
-  margin: 20px auto 15px;
-  color: var(--main-color);
+:root {
+  --secondary-color: #10cab7;
+  --dark-color: #333;
+  --text-light: #666;
+  --main-color: #10cab7;
 }
+
+@media (max-width: 479px) {
+  .featuers {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .featuers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .featuers {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 .services {
   display: flex;
   flex-direction: column;
@@ -286,7 +335,9 @@ i {
   margin-top: 3rem;
 }
 
-.erste-karte, .zweite-karte, .dritte-karte {
+.erste-karte,
+.zweite-karte,
+.dritte-karte {
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
@@ -294,7 +345,9 @@ i {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.erste-karte:hover, .zweite-karte:hover, .dritte-karte:hover {
+.erste-karte:hover,
+.zweite-karte:hover,
+.dritte-karte:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
@@ -410,71 +463,76 @@ i {
   }
 }
 .about {
-  display: block;
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
   width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  position: relative;
 }
-.about .about-überschrift {
+
+.about-überschrift {
+  width: 100%;
   text-align: center;
   padding: 20px;
-  margin: 20px;
+  margin-bottom: 20px;
 }
+
 .about h1 {
   color: #ebeced;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 800;
-  margin-top: -30px;
+  margin: 0;
 }
-.about p {
+
+.about > .about-überschrift p {
   font-size: 20px;
   font-weight: 400;
   color: #797979;
-  margin-top: -100px;
-}
-.about .about-text1 {
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  margin-top: 90px;
+  margin-top: 10px;
 }
 
-.about .bild-about {
-  display: flex;
-  position: relative;
-  width: 250px;
-  height: 375px;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+.bild-about {
+  flex: 1;
+  max-width: 300px;
   border-left: 5px #10cab7 solid;
   border-right: 10px red solid;
-}
-.about img {
-  width: 250px;
-  position: absolute;
-  left: 200px;
-  object-fit: cover;
-}
-.about-text {
-  text-align: center;
   display: flex;
   justify-content: center;
-  align-content: center;
-  position: absolute;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-  top: 30%;
-  left: 40%;
-  bottom: 20%;
-  line-height: 1.6;
-  gap: 50px;
+  align-items: center;
 }
+
+.bild-about img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 2;
+  min-width: 250px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  color: black;
+  font-size: 18px;
+  padding: 0 20px;
+}
+
+.about-text1 {
+  font-weight: bold;
+}
+
 hr {
-  display: inline-block;
   width: 50%;
-  margin-left: 40px;
-  margin-bottom: 90px;
+  margin: 20px auto;
+  border: none;
+  border-top: 1px solid #ccc;
 }
 
 .contact {
@@ -669,4 +727,123 @@ hr {
   font-size: 17px;
   color: #555;
   line-height: 1.5;
+}
+
+/* ============= */
+/* RESPONSIVE STYLES */
+/* ============= */
+@media (max-width: 1199px) {
+  .section-title .title-background {
+    font-size: 5rem;
+    margin-bottom: -2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-title .title-background {
+    font-size: 4rem;
+    margin-bottom: -2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title .title-background {
+    font-size: 3rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .services-image::before {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-title .title-background {
+    font-size: 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-email {
+    font-size: 1.3rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-links a {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .about h1 {
+    font-size: 40px;
+  }
+
+  .about > .about-überschrift p {
+    font-size: 16px;
+  }
+
+  .bild-about {
+    width: 80%;
+    max-width: 250px;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  hr {
+    width: 80%;
+    margin: 30px auto;
+  }
 }
