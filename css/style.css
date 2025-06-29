@@ -1,0 +1,596 @@
+/* Start Variables */
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #2c4755;
+  --section-padding: 60px;
+  --section-background: #f6f6f6;
+  --main-duration: 0.5s;
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  width: 100%;
+}
+.header {
+  padding: 20px;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto;
+}
+.header .logo {
+  width: 60px;
+}
+.header .links {
+  position: relative;
+}
+.header .links:hover .icon span:nth-child(2) {
+  width: 100%;
+}
+
+.header .links .icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.header .links .icon:hover {
+  cursor: pointer;
+}
+.header .links .icon span {
+  background-color: #333;
+  margin-bottom: 5px;
+  height: 2px;
+}
+.header .links .icon span:first-child {
+  width: 100%;
+}
+.header .links .icon span:nth-child(2) {
+  width: 60%;
+  transition: var(--main-duration);
+}
+.header .links .icon span:last-child {
+  width: 100%;
+}
+.header .links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+  position: absolute;
+  right: 0;
+  min-width: 200px;
+  top: calc(100% + 15px);
+  display: none;
+  z-index: 1;
+}
+.header .links ul::before {
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #f6f6f6 transparent;
+  position: absolute;
+  right: 5px;
+  top: -20px;
+}
+.header .links:hover ul {
+  display: block;
+}
+.header .links ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+  transition: var(--main-duration);
+}
+.hero-bereich {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/landing.jpg);
+}
+.hero-bereich .überschrift {
+  font-size: 50px;
+  color: var(--main-color);
+}
+.hero-bereich .hero-text {
+  font-size: 22px;
+}
+.about-us {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 400px;
+}
+.about-us .featuers h1,
+.about-us .featuers p {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.about-us .featuers {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.about-us .featuers > div {
+  width: 30%;
+  text-align: center;
+}
+
+i {
+  display: block;
+  margin: 20px auto 15px;
+  color: var(--main-color);
+}
+.services {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.services-überschrift {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.services-überschrift h1 {
+  color: #ebeced;
+  font-size: 100px;
+  font-weight: 800;
+  margin-top: -30px;
+}
+.services-überschrift p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #797979;
+  margin-top: -100px;
+}
+.services-content {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.services-content .top-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.text-column div {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  padding-left: 90px;
+}
+
+.text-column i {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 30px;
+  color: #2c4755;
+}
+
+.image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  width: 300px;
+}
+
+.image-container img {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.image-container .rahmen {
+  position: absolute;
+  background-color: #2c4755;
+  height: 450px;
+  width: 100px;
+  left: 250px;
+  top: -25px;
+  z-index: 1;
+}
+
+.portfolio {
+  display: block;
+  width: 100%;
+  background-color: rgb(246, 246, 246);
+}
+.portfolio .portfolio-überschrift {
+  text-align: center;
+  width: 100%;
+  padding: 50px;
+}
+.portfolio .portfolio-überschrift h1 {
+  color: #ebeced;
+  font-size: 100px;
+  font-weight: 800;
+  margin-top: -30px;
+}
+.portfolio .portfolio-überschrift p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #797979;
+  margin-top: -100px;
+}
+.portfolio .projekte {
+  display: flex;
+  justify-content: center;
+  width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+  gap: 35px;
+}
+.portfolio .projekte .erste-karte,
+.portfolio .projekte .zweite-karte,
+.portfolio .projekte .dritte-karte {
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  margin: 20px;
+}
+
+.portfolio .projekte img {
+  width: 400px;
+}
+.portfolio .projekte h4 {
+  font-weight: 800;
+  font-size: 20px;
+}
+.portfolio .projekte p {
+  font-size: 19px;
+  color: #777;
+  line-height: 1.6;
+}
+
+/* Smartphones */
+@media (max-width: 767px) {
+  .header .container {
+    width: 90%;
+  }
+
+  .hero-bereich .überschrift {
+    font-size: 30px;
+  }
+
+  .hero-bereich .hero-text {
+    font-size: 18px;
+  }
+
+  .about-us {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .about-us .featuers {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-us .featuers > div {
+    width: 100%;
+  }
+
+  .services-überschrift h1 {
+    font-size: 50px;
+    margin-top: 0;
+  }
+
+  .services-überschrift p {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .text-column div {
+    padding-left: 60px; /* Weniger Platz für Icon */
+  }
+
+  .text-column i {
+    font-size: 24px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .image-container {
+    width: 80%;
+  }
+
+  .image-container .rahmen {
+    display: none; /* Rahmen bei kleineren Geräten ausblenden */
+  }
+  .portfolio .projekte {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .portfolio .projekte .erste-karte,
+  .portfolio .projekte .zweite-karte,
+  .portfolio .projekte .dritte-karte {
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  .portfolio .projekte img {
+    width: 100%;
+    height: auto;
+  }
+
+  .portfolio .portfolio-überschrift h1 {
+    font-size: 70px;
+  }
+
+  .portfolio .portfolio-überschrift p {
+    font-size: 18px;
+    margin-top: -60px;
+  }
+  .image-container {
+    width: 200px;
+  }
+
+  .image-container .rahmen {
+    height: 350px;
+    width: 60px;
+    left: 150px;
+    top: -15px;
+  }
+}
+.about {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.about .about-überschrift {
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+}
+.about h1 {
+  color: #ebeced;
+  font-size: 100px;
+  font-weight: 800;
+  margin-top: -30px;
+}
+.about p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #797979;
+  margin-top: -100px;
+}
+.about .about-text1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-top: 90px;
+}
+
+.about .bild-about {
+  display: flex;
+  position: relative;
+  width: 250px;
+  height: 375px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-left: 5px #10cab7 solid;
+  border-right: 10px red solid;
+}
+.about img {
+  width: 250px;
+  position: absolute;
+  left: 200px;
+  object-fit: cover;
+}
+.about-text {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  top: 30%;
+  left: 40%;
+  bottom: 20%;
+  line-height: 1.6;
+  gap: 50px;
+}
+hr {
+  display: inline-block;
+  width: 50%;
+  margin-left: 40px;
+  margin-bottom: 90px;
+}
+
+.contact {
+  display: block;
+  width: 100%;
+  background-color: rgb(246, 246, 246);
+}
+.contact-überschrift {
+  text-align: center;
+  position: relative;
+}
+.contact-überschrift .heading {
+  color: #ebeced;
+  font-size: 100px;
+  text-align: center;
+  font-weight: 800;
+}
+.contact-text {
+  position: absolute;
+  right: 45%;
+  bottom: 56%;
+  font-size: 20px;
+  color: #797979;
+}
+.feel {
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--secondary-color);
+  letter-spacing: -2px;
+  margin-bottom: 15px;
+}
+.email {
+  display: block;
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--main-color);
+  text-decoration: none;
+}
+.soziale-netzwerke {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.soziale-netzwerke i {
+  margin-left: 10px;
+  color: var(--secondary-color);
+}
+.footer {
+  text-align: center;
+  margin: 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 30px 10px;
+  font-size: 18px;
+}
+.footer span {
+  font-weight: bold;
+  color: var(--main-color);
+}
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .container {
+    width: 85%;
+  }
+
+  .hero-bereich .überschrift {
+    font-size: 40px;
+  }
+
+  .hero-bereich .hero-text {
+    font-size: 20px;
+  }
+
+  .about-us {
+    flex-direction: column;
+    height: auto;
+    padding: 30px;
+  }
+
+  .about-us .featuers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .about-us .featuers > div {
+    width: 45%;
+  }
+
+  .services-überschrift h1 {
+    font-size: 70px;
+  }
+
+  .services-überschrift p {
+    font-size: 18px;
+    margin-top: -30px;
+  }
+
+  .text-column div {
+    padding-left: 70px;
+  }
+
+  .text-column i {
+    font-size: 26px;
+    top: 18px;
+    left: 18px;
+  }
+
+  .image-container {
+    width: 70%;
+  }
+
+  .image-container .rahmen {
+    left: 200px;
+    top: 0;
+  }
+  .portfolio .projekte {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .portfolio .projekte .erste-karte,
+  .portfolio .projekte .zweite-karte,
+  .portfolio .projekte .dritte-karte {
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  .portfolio .projekte img {
+    width: 100%;
+    height: auto;
+  }
+
+  .portfolio .portfolio-überschrift h1 {
+    font-size: 70px;
+  }
+
+  .portfolio .portfolio-überschrift p {
+    font-size: 18px;
+    margin-top: -60px;
+  }
+  .image-container {
+    width: 250px;
+  }
+
+  .image-container .rahmen {
+    height: 400px;
+    width: 80px;
+    left: 200px;
+    top: -20px;
+  }
+}
