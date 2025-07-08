@@ -466,7 +466,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 40px;
   width: 100%;
   padding: 40px 20px;
@@ -496,13 +496,14 @@ body {
 }
 
 .bild-about {
-  flex: 1;
+  flex: 1 1 300px;
   max-width: 300px;
-  border-left: 5px #10cab7 solid;
-  border-right: 10px red solid;
+  min-width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left: 5px #10cab7 solid;
+  border-right: 10px red solid;
 }
 
 .bild-about img {
@@ -512,9 +513,9 @@ body {
 }
 
 .about-text {
-  flex: 2;
+  flex: 2 1 350px;
   min-width: 250px;
-  line-height: 1.6;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -522,6 +523,7 @@ body {
   color: black;
   font-size: 18px;
   padding: 0 20px;
+  align-items: flex-start; /* linksbündig, für mittig: center */
 }
 
 .about-text1 {
@@ -814,36 +816,19 @@ hr {
     font-size: 1.2rem;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .about {
     flex-direction: column;
     align-items: center;
     padding: 20px;
   }
-
-  .about h1 {
-    font-size: 40px;
-  }
-
-  .about > .about-überschrift p {
-    font-size: 16px;
-  }
-
-  .bild-about {
-    width: 80%;
-    max-width: 250px;
-    border: none;
-    margin-bottom: 20px;
-  }
-
   .about-text {
-    width: 100%;
+    align-items: center; /* Text mittig auf kleinen Geräten */
     text-align: center;
     padding: 0;
   }
-
-  hr {
-    width: 80%;
-    margin: 30px auto;
+  .bild-about {
+    margin-bottom: 20px;
+    border: none;
   }
 }
